@@ -48,5 +48,5 @@ async function generateFreesoundSound() {
         catch (err) {
             console.error("Freesound API error:", err);
             alert("Error fetching sound.");
-    }
+    }}
 
