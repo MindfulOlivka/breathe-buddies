@@ -30,4 +30,13 @@ async function generateFreesoundSound() {
     const query = tags[selectedCondition] || "relaxation";
     const apiKey = 'SrVIUBsuhm4o0H69FWtmQDk0NKCCVhbsx7qmOuWB';
     const url = `https://freesound.org/apiv2/search/text/?query=${query}&filter=duration:[10 TO 120]&fields=id,name,previews&token=${apiKey}`;
+
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+    
+        if (!data.results || data.results.length === 0) {
+          alert("No sound found for this condition.");
+          return;
+        }
 }
