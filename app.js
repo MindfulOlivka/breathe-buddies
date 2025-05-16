@@ -39,4 +39,14 @@ async function generateFreesoundSound() {
           alert("No sound found for this condition.");
           return;
         }
-}
+
+        if (currentAudio) currentAudio.pause();
+        currentAudio = new Audio(audioUrl);
+    currentAudio.loop = true;
+        }
+
+        catch (err) {
+            console.error("Freesound API error:", err);
+            alert("Error fetching sound.");
+    }
+
