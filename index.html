@@ -14,15 +14,16 @@
 
 </div>
 <div class="mental-health-buttons">
-    <p>How are you feeling?</p>
-    <button id="anxious-button">Anxious</button>
-    <button id="Overwhalmed">Overwhalmed</button>
-    <button id="sad-button">Sad</button>
-    <button id="Fatigued-button">Fatigued</button>
+    <p>How are you feeling today?</p>
+      <button onclick="selectCondition('Anxious')">Anxious</button>
+      <button onclick="selectCondition('Overwhelmed')">Overwhelmed</button>
+      <button onclick="selectCondition('Sad')">Sad</button>
+      <button onclick="selectCondition('Fatigued')">Fatigued</button>
     </div>
 
     <div id="generate-section" style="display: none;">
-        <button id="generate-button">Generate Sound</button>   
+        <p>Click below to generate a soothing sound:</p>
+        <button onclick="generateFreesoundSound()">Generate Sound</button>  
     </div>
 
     <div class="session-count">
