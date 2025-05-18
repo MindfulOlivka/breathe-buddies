@@ -1,10 +1,10 @@
 let duration = 600;
 let remaining = duration;
 let timerId = null;
-let selectCondition = "";
+let selectedCondition = "";    // QUESTION ? WHY "" makes it work but '' didn't ? 
 let currentAudio = null;
 
-const display = document.getElementById("timer-display");
+/*  const display = document.getElementById("timer-display");
 const startBtn = document.getElementById("start-btn");
 const pauseBtn = document.getElementById("pause-btn");
 const resetBtn = document.getElementById("reset-btn");
@@ -17,46 +17,48 @@ function formatTime(sec) {
   return `${m}:${s}`;
 }
 
-function loadSessions()
+function loadSessions() {
+  return parseInt(localStorage.getItem("sessions") || "0", 10);
+}
 
-function saveSessions(count)
+function saveSessions(count) {
+  localStorage.setItem("sessions", count);
+}
 
-function updateDisplay()
+ function updateDisplay()
 
-function startTimer()
+ function startTimer()
 
-function pauseTimer()
+ function pauseTimer()
 
 function resetTimer() 
 
-
+*/
 
 function selectCondition(condition) {
-  const animalDisplay = document.getElementById("animal-display"); // gifs are not final, just placeholders for now
+  const animalDisplay = document.getElementById('animal-display');
   const animalGifs = {
-    Anxious:
-      "https://tenor.com/view/cat-music-vibing-headphones-kitty-gif-20294084.gif",
-    Overwhelmed:
-      "https://tenor.com/view/milk-and-mocha-dj-music-lover-cute-gif-12535136.gif",
-    Sad: "https://tenor.com/view/white-rabbit-music-radio-dancing-gif-14540285155726448470.gif",
-    Fatigued:
-      "https://tenor.com/view/tonton-yuta-listening-to-music-gif-12319402.gif",
+    anxiety: 'https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif',    // NOT final GIFs Lol just placeholders
+    adhd: 'https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif',
+    depression: 'https://media.giphy.com/media/QvBoMEcQ7DQXK/giphy.gif',
+    sleep: 'https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif'
   };
   animalDisplay.innerHTML = `<img src="${animalGifs[condition]}" alt="${condition} animal listening" />`;
 
-  selectCondition = condition;
-  document.getElementById("generate-section").style.display = "block";
+  selectedCondition = condition;
+  document.getElementById('generate-section').style.display = 'block';
 }
+
 async function generateFreesoundSound() {
   const tags = {
-    anxiety: "peaceful",
-    adhd: "mindfulness",
-    depression: "soothing",
-    sleep: "healing",
+    anxiety: "calm",
+    adhd: "focus",
+    depression: "uplifting",
+    sleep: "sleep"      // needs to be connected to a different sound
   };
 
   const query = tags[selectedCondition] || "relaxation";
-  const apiKey = "SrVIUBsuhm4o0H69FWtmQDk0NKCCVhbsx7qmOuWB";
+  const apiKey = 'SrVIUBsuhm4o0H69FWtmQDk0NKCCVhbsx7qmOuWB';
   const url = `https://freesound.org/apiv2/search/text/?query=${query}&filter=duration:[10 TO 120]&fields=id,name,previews&token=${apiKey}`;
 
   try {
@@ -67,22 +69,24 @@ async function generateFreesoundSound() {
       alert("No sound found for this condition.");
       return;
     }
-    const track = data.results[Math.floor(Math.random() * data.results.length)];
-    const audioUrl = track.previews["preview-lq-mp3"];
 
+    const track = data.results[Math.floor(Math.random() * data.results.length)];
+    const audioUrl = track.previews['preview-lq-mp3'];
+    
     if (currentAudio) currentAudio.pause();
     currentAudio = new Audio(audioUrl);
     currentAudio.loop = true;
-    currentAudio.play().catch((e) => console.error("Playback failed:", e));
+    currentAudio.play().catch(e => console.error("Playback failed:", e));
+
     console.log("Playing:", track.name);
+
   } catch (err) {
     console.error("Freesound API error:", err);
-    alert("Error fetching sound.");
+    alert("Error fetching sound. Check console for details.");
   }
 }
 
-startBtn.addEventListener("click", startTimer);
-pauseBtn.addEventListener("click", pauseTimer);
-resetBtn.addEventListener("click", resetTimer);
-
+startBtn.addEventListener('click', startTimer);
+pauseBtn.addEventListener('click', pauseTimer);
+resetBtn.addEventListener('click', resetTimer);
 updateDisplay();

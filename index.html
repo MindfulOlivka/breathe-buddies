@@ -23,16 +23,16 @@
 </div>
 <div class="mental-health-buttons">
     <p>How are you feeling today?</p>
-      <button onclick="selectCondition('Anxious')">Anxious</button>
-      <button onclick="selectCondition('Overwhelmed')">Overwhelmed</button>
-      <button onclick="selectCondition('Sad')">Sad</button>
-      <button onclick="selectCondition('Fatigued')">Fatigued</button>
-    </div>
+    <button onclick="selectCondition('anxiety')">Anxious</button>
+    <button onclick="selectCondition('adhd')">Unfocused</button>
+    <button onclick="selectCondition('depression')">Sad</button>
+    <button onclick="selectCondition('sleep')">Sleepy</button>
+  </div>
 
-    <div id="generate-section" style="display: none;">
-        <p>Click below to generate a soothing sound:</p>
-        <button onclick="generateFreesoundSound()">Generate Sound</button>  
-    </div>
+  <div id="generate-section" style="display:none;">
+    <p>Click below to generate a soothing sound:</p>
+    <button onclick="generateFreesoundSound()">Generate Sound</button>
+  </div>
 
     <div class="session-count">
         <p>Completed sessions: <span id="session-count">0</span></p>
