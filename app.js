@@ -2,7 +2,7 @@ let selectCondition = '';
 let currentAudio = null;
 
 function selectCondition(condition) {
-const animalDisplay = document.getElementById('animal-display');
+const animalDisplay = document.getElementById('animal-display');        // Animal gifs are not final, just placeholders for now
 const animalGifs = {
   Anxious:
     "https://tenor.com/view/cat-music-vibing-headphones-kitty-gif-20294084.gif",
@@ -39,14 +39,22 @@ async function generateFreesoundSound() {
           alert("No sound found for this condition.");
           return;
         }
+        const track = data.results[Math.floor(Math.random() * data.results.length)];
+        const audioUrl = track.previews["preview-lq-mp3"];
 
         if (currentAudio) currentAudio.pause();
         currentAudio = new Audio(audioUrl);
-    currentAudio.loop = true;
-        }
+      currentAudio.loop = true;
+      currentAudio.play().catch((e) => console.error("Playback failed:", e));
+      console.log("Playing:", track.name); 
+    } catch (err) {
+      console.error("Freesound API error:", err);
+      alert("Error fetching sound.");
+    }
 
-        catch (err) {
-            console.error("Freesound API error:", err);
-            alert("Error fetching sound.");
-    }}
-
+    startBtn.addEventListener('click', startTimer);
+    pauseBtn.addEventListener('click', pauseTimer);
+    resetBtn.addEventListener('click', resetTimer); 
+    
+    updateDisplay();
+}
