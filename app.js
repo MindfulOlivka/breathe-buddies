@@ -11,13 +11,28 @@ const resetBtn = document.getElementById("reset-btn");
 const minutesInput = document.getElementById("minutes-input");
 const sessionCountEl = document.getElementById("session-count");
 
+function formatTime(sec) {
+  const m = Math.floor(sec / 60).toString().padStart(2, "0");
+  const s = (sec % 60).toString().padStart(2, "0");
+  return `${m}:${s}`;
+}
 
+function loadSessions()
 
+function saveSessions(count)
+
+function updateDisplay()
+
+function startTimer()
+
+function pauseTimer()
+
+function resetTimer() 
 
 
 
 function selectCondition(condition) {
-  const animalDisplay = document.getElementById("animal-display"); // Animal gifs are not final, just placeholders for now
+  const animalDisplay = document.getElementById("animal-display"); // gifs are not final, just placeholders for now
   const animalGifs = {
     Anxious:
       "https://tenor.com/view/cat-music-vibing-headphones-kitty-gif-20294084.gif",
