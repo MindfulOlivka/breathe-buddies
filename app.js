@@ -50,11 +50,10 @@ async function generateFreesoundSound() {
     } catch (err) {
       console.error("Freesound API error:", err);
       alert("Error fetching sound.");
-    }
+    }}
 
     startBtn.addEventListener('click', startTimer);
     pauseBtn.addEventListener('click', pauseTimer);
     resetBtn.addEventListener('click', resetTimer); 
     
     updateDisplay();
-}
