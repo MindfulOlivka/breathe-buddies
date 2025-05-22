@@ -7,7 +7,7 @@
 - [Features](#features)
 - [Technologies](#technologies)
 - [License](#license)
-
+- [Author](#author)
 ## Project-overview
 
 Breathe Buddies is a web-based mindfulness application designed for children ages 4–10. It helps kids manage anxiety, ADHD, stress, and sleep challenges by guiding them through interactive buddy and mood selection, calming audio experiences, and a built-in session timer. Powered by the Freesound API.
@@ -34,3 +34,10 @@ Breathe Buddies is a web-based mindfulness application designed for children age
 - Responsive design with Flexbox and CSS Grid
 
 ## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Author
+
+Olivia (aka mindfulolivka)  
+[GitHub Profile](https://github.com/mindfulolivka)
