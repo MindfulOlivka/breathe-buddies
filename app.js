@@ -1,7 +1,7 @@
 let duration = 600;
 let remaining = duration;
 let timerId = null;
-let selectedCondition = "";    // QUESTION ? WHY "" makes it work but '' didn't ? 
+let selectedCondition = "";
 let currentAudio = null;
 
 const display = document.getElementById("timer-display");
@@ -12,7 +12,9 @@ const minutesInput = document.getElementById("minutes-input");
 const sessionCountEl = document.getElementById("session-count");
 
 function formatTime(sec) {
-  const m = Math.floor(sec / 60).toString().padStart(2, "0");
+  const m = Math.floor(sec / 60)
+    .toString()
+    .padStart(2, "0");
   const s = (sec % 60).toString().padStart(2, "0");
   return `${m}:${s}`;
 }
@@ -32,10 +34,11 @@ function updateDisplay() {
 }
 
 function startTimer() {
-  if (currentAudio && currentAudio.paused) currentAudio.play().catch(e => console.error("Audio resume failed:", e));
+  if (currentAudio && currentAudio.paused)
+    currentAudio.play().catch((e) => console.error("Audio resume failed:", e));
   if (!timerId && minutesInput.value) {
     duration = remaining = parseInt(minutesInput.value, 10) * 60;
-    minutesInput.value = '';
+    minutesInput.value = "";
   }
   if (timerId) return;
 
@@ -59,7 +62,6 @@ function startTimer() {
   }, 1000);
 }
 
-
 function pauseTimer() {
   if (currentAudio) currentAudio.pause();
   clearInterval(timerId);
@@ -67,7 +69,6 @@ function pauseTimer() {
   startBtn.disabled = false;
   pauseBtn.disabled = true;
 }
-
 
 function resetTimer() {
   if (currentAudio) currentAudio.pause();
@@ -80,19 +81,18 @@ function resetTimer() {
   resetBtn.disabled = true;
 }
 
-
 function selectCondition(condition) {
-  const animalDisplay = document.getElementById('animal-display');
+  const animalDisplay = document.getElementById("animal-display");
   const animalGifs = {
-    anxiety: 'https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif',    // NOT final GIFs Lol just placeholders
-    adhd: 'https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif',
-    depression: 'https://media.giphy.com/media/QvBoMEcQ7DQXK/giphy.gif',
-    sleep: 'https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif'
+    anxiety: "https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif",
+    adhd: "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
+    depression: "https://media.giphy.com/media/QvBoMEcQ7DQXK/giphy.gif",
+    sleep: "https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif",
   };
   animalDisplay.innerHTML = `<img src="${animalGifs[condition]}" alt="${condition} animal listening" />`;
 
   selectedCondition = condition;
-  document.getElementById('generate-section').style.display = 'block';
+  document.getElementById("generate-section").style.display = "block";
 }
 
 async function generateFreesoundSound() {
@@ -100,11 +100,11 @@ async function generateFreesoundSound() {
     anxiety: "calm",
     adhd: "focus",
     depression: "uplifting",
-    sleep: "sleep"      // needs to be connected to a different sound
+    sleep: "sleep",
   };
 
   const query = tags[selectedCondition] || "relaxation";
-  const apiKey = 'SrVIUBsuhm4o0H69FWtmQDk0NKCCVhbsx7qmOuWB';
+  const apiKey = "SrVIUBsuhm4o0H69FWtmQDk0NKCCVhbsx7qmOuWB";
   const url = `https://freesound.org/apiv2/search/text/?query=${query}&filter=duration:[10 TO 120]&fields=id,name,previews&token=${apiKey}`;
 
   try {
@@ -117,22 +117,20 @@ async function generateFreesoundSound() {
     }
 
     const track = data.results[Math.floor(Math.random() * data.results.length)];
-    const audioUrl = track.previews['preview-lq-mp3'];
-    
+    const audioUrl = track.previews["preview-lq-mp3"];
     if (currentAudio) currentAudio.pause();
     currentAudio = new Audio(audioUrl);
     currentAudio.loop = true;
-    currentAudio.play().catch(e => console.error("Playback failed:", e));
+    currentAudio.play().catch((e) => console.error("Playback failed:", e));
 
     console.log("Playing:", track.name);
-
   } catch (err) {
     console.error("Freesound API error:", err);
     alert("Error fetching sound. Check console for details.");
   }
 }
 
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer);
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resetBtn.addEventListener("click", resetTimer);
 updateDisplay();
