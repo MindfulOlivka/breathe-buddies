@@ -4,7 +4,7 @@ let timerId = null;
 let selectedCondition = "";    // QUESTION ? WHY "" makes it work but '' didn't ? 
 let currentAudio = null;
 
-/*  const display = document.getElementById("timer-display");
+const display = document.getElementById("timer-display");
 const startBtn = document.getElementById("start-btn");
 const pauseBtn = document.getElementById("pause-btn");
 const resetBtn = document.getElementById("reset-btn");
@@ -25,15 +25,14 @@ function saveSessions(count) {
   localStorage.setItem("sessions", count);
 }
 
- function updateDisplay()
+function updateDisplay()
 
- function startTimer()
+function startTimer()
 
- function pauseTimer()
+function pauseTimer()
 
 function resetTimer() 
 
-*/
 
 function selectCondition(condition) {
   const animalDisplay = document.getElementById('animal-display');
