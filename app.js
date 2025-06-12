@@ -25,9 +25,40 @@ function saveSessions(count) {
   localStorage.setItem("sessions", count);
 }
 
-function updateDisplay()
+sessionCountEl.textContent = loadSessions();
 
-function startTimer()
+function updateDisplay() {
+  display.textContent = formatTime(remaining);
+}
+
+function startTimer() {
+  if (currentAudio && currentAudio.paused) currentAudio.play().catch(e => console.error("Audio resume failed:", e));
+  if (!timerId && minutesInput.value) {
+    duration = remaining = parseInt(minutesInput.value, 10) * 60;
+    minutesInput.value = '';
+  }
+  if (timerId) return;
+
+  startBtn.disabled = true;
+  pauseBtn.disabled = false;
+  resetBtn.disabled = false;
+
+  timerId = setInterval(() => {
+    remaining--;
+    updateDisplay();
+    if (remaining <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+      const count = loadSessions() + 1;
+      saveSessions(count);
+      sessionCountEl.textContent = count;
+
+      startBtn.disabled = false;
+      pauseBtn.disabled = true;
+    }
+  }, 1000);
+}
+
 
 function pauseTimer()
 
