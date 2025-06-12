@@ -81,7 +81,7 @@ function resetTimer() {
   resetBtn.disabled = true;
 }
 
-function selectCondition(condition) {
+function selectCondition(condition) { 
   const animalDisplay = document.getElementById("animal-display");
   const animalGifs = {
     anxiety: "https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif",
@@ -105,7 +105,7 @@ async function generateFreesoundSound() {
 
   const query = tags[selectedCondition] || "relaxation";
   const apiKey = "SrVIUBsuhm4o0H69FWtmQDk0NKCCVhbsx7qmOuWB";
-  const url = `https://freesound.org/apiv2/search/text/?query=${query}&filter=duration:[10 TO 120]&fields=id,name,previews&token=${apiKey}`;
+  const url = `https://freesound.org/apiv2/search/text/?query=${query}&filter=duration:[10 TO 120]&fields=id,name,previews&token=${apiKey}`; 
 
   try {
     const res = await fetch(url);

@@ -30,4 +30,57 @@ body {
     color: #4a4a4a;
   }
 
+
+.controls input {
+    width: 60px;
+    padding: 0.4rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-right: 0.5rem;
+  }
   
+  .controls button {
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+    background-color: #ffb6b9;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .mental-health-buttons button,
+  #generate-section button {
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    border: none;
+    border-radius: 16px;
+    background-color: #fcbad3;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .session-count {
+    margin-top: 1rem;
+    color: #555;
+  }
+  
+  #animal-display {
+    margin-bottom: 1rem;
+  }
+  #animal-display img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+  button:hover {
+    background-color: #81d4fa !important;
+    color: #004d40;
+    font-weight: bold;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+  }
