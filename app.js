@@ -60,9 +60,25 @@ function startTimer() {
 }
 
 
-function pauseTimer()
+function pauseTimer() {
+  if (currentAudio) currentAudio.pause();
+  clearInterval(timerId);
+  timerId = null;
+  startBtn.disabled = false;
+  pauseBtn.disabled = true;
+}
 
-function resetTimer() 
+
+function resetTimer() {
+  if (currentAudio) currentAudio.pause();
+  clearInterval(timerId);
+  timerId = null;
+  remaining = duration;
+  updateDisplay();
+  startBtn.disabled = false;
+  pauseBtn.disabled = true;
+  resetBtn.disabled = true;
+}
 
 
 function selectCondition(condition) {
