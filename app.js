@@ -134,3 +134,21 @@ startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
 resetBtn.addEventListener("click", resetTimer);
 updateDisplay();
+
+function selectBuddy(name) {
+  localStorage.setItem("selectedBuddy", name);
+  window.location.href = "mood.html";
+}
+
+function selectMood(mood) {
+  localStorage.setItem("selectedMood", mood);
+  window.location.href = "sound.html";
+}
+
+function loadSession() {
+  const buddy = localStorage.getItem("selectedBuddy");
+  const mood = localStorage.getItem("selectedMood");
+
+  const display = document.getElementById("selected-info");
+  display.innerHTML = `<p>Your buddy: <strong>${buddy}</strong> <br> Your mood: <strong>${mood}</strong></p>`;
+}
