@@ -57,10 +57,10 @@ function startTimer() {
   timerId = setInterval(() => {
     remaining--;
     updateDisplay();
-    if (remaining <= 0) {
-      clearInterval(timerId);
+    if (remaining <= 0) { 
+      clearInterval(timerId); 
       timerId = null;
-      if (currentAudio) currentAudio.pause(); // Stop music when timer ends
+      if (currentAudio) currentAudio.pause(); 
       const count = loadSessions() + 1;
       saveSessions(count);
       if (sessionCountEl) sessionCountEl.textContent = count;
@@ -71,7 +71,7 @@ function startTimer() {
 }
 
 function pauseTimer() {
-  if (currentAudio) currentAudio.pause();
+  if (currentAudio) currentAudio.pause(); 
   clearInterval(timerId);
   timerId = null;
   startBtn.disabled = false;
