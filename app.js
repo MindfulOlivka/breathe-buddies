@@ -52,7 +52,7 @@ function startTimer() {
   if (timerId) return;
   startBtn.disabled = true;
   pauseBtn.disabled = false;
-  resetBtn.disabled = false;
+  resetBtn.disabled = false; 
 
   timerId = setInterval(() => {
     remaining--;
