@@ -149,13 +149,27 @@ function loadSession() {
   const buddy = localStorage.getItem("selectedBuddy");
   const mood = localStorage.getItem("selectedMood");
   const display = document.getElementById("selected-info");
-  display.innerHTML = `<p>Your buddy: <strong>${buddy}</strong> <br> Your mood: <strong>${mood}</strong></p>`;
+  display.innerHTML = `<figure><img src="images/${buddy}.png" class="buddy-selections-image"></figure><figure><img src="mood/${mood}.png" class="buddy-selections-image"></figure>`;
 }
+
 
 function msToClock(ms) {
   const m = Math.floor(ms / 60000);
   const s = String(Math.floor((ms % 60000) / 1000)).padStart(2, "0");
   return `${m}:${s}`;
+}
+
+function formatTimestamp(ts) {
+  const date = new Date(ts);
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = String(date.getFullYear()).slice(-2);
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  return `${month}/${day}/${year} ${hours}:${minutes}${ampm}`;
 }
 
 window.addEventListener("load", () => {
@@ -168,11 +182,12 @@ window.addEventListener("load", () => {
     rows.forEach((r) => {
       const [ts, buddy, mood, dur] = r.split(",");
       const tr = document.createElement("tr");
-      tr.innerHTML = `<td>${new Date(
-        +ts
-      ).toLocaleString()}</td><td>${buddy}</td><td>${mood}</td><td>${msToClock(
-        +dur
-      )}</td>`;
+      tr.innerHTML = `
+        <td>${formatTimestamp(+ts)}</td>
+        <td>${buddy}</td>
+        <td>${mood}</td>
+        <td>${msToClock(+dur)}</td>
+      `;
       tbody.appendChild(tr);
     });
 
