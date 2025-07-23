@@ -3,37 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Session History</title>
+  <title>Session History | Breathe Buddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-<div class="container">
-  <h1>Completed Sessions</h1>
-  <p>Here you can view your completed mindfulness sessions. Each session is recorded with the date, the buddy you chose, the mood you selected, and the duration of the session.</p>
-  
-  <table id="historyTable">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Buddy</th>
-        <th>Mood</th>
-        <th>Duration</th>
-      </tr>
-    </thead>
-    <tbody id="historyBody">
-      
-    </tbody>
-  </table>
-
-  <div>
-    <button id="clearBtn">Clear History</button>
-    <p>
+  <div class="container-buddy">
+    <h1 class="title">
+      <span class="small">completed</span>
+      <span class="large">sessions</span>
+    </h1>
+    <p class="intro">Here you can view your completed mindfulness sessions. Each session is recorded with the date, the buddy you chose, the mood you selected, and the duration of the session.</p>
+    <div class="table-container">
+      <table id="historyTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Buddy</th>
+            <th>Mood</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </div>
+    <div>
+      <button id="clearBtn">Clear History</button>
+    </div>
+    <div class="history-group">
       <a href="index.html">
         <button id="home-btn">Home</button>
       </a>
-    </p>
+      <a href="sound.html">
+        <button id="back-btn">Back</button>
+      </a>
+    </div>
   </div>
-</div>
 </body>
 </html>
