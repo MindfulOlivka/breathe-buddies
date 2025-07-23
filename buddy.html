@@ -1,49 +1,70 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Breathe Buddies</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Your Buddy | Breathe Buddies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-    <body>
-<div class="container">
-    <h1>Select your buddy</h1>
-   
-
+<body>
+  <div class="container-buddy">
+    <h1 class="title">
+      <span class="small">select your</span>
+      <span class="large">BUDDY</span>
+    </h1>
     <div class="buddy-options">
-        <img src="images/buddy1.png" alt="Buddy 1" class="buddy-image" onclick="selectBuddy('buddy1')">
-        <img src="images/buddy2.png" alt="Buddy 2" class="buddy-image" onclick="selectBuddy('buddy2')">
-        <img src="images/buddy3.png" alt="Buddy 3" class="buddy-image" onclick="selectBuddy('buddy3')">
-        <img src="images/buddy4.png" alt="Buddy 4" class="buddy-image" onclick="selectBuddy('buddy4')">
-        <img src="images/buddy5.png" alt="Buddy 5" class="buddy-image" onclick="selectBuddy('buddy5')">
-        <img src="images/buddy6.png" alt="Buddy 6" class="buddy-image" onclick="selectBuddy('buddy6')">
-        <img src="images/buddy7.png" alt="Buddy 7" class="buddy-image" onclick="selectBuddy('buddy7')">
-        <img src="images/buddy8.png" alt="Buddy 8" class="buddy-image" onclick="selectBuddy('buddy8')">
-        <img src="images/buddy9.png" alt="Buddy 9" class="buddy-image" onclick="selectBuddy('buddy9')">
-        <img src="images/buddy10.png" alt="Buddy 10" class="buddy-image" onclick="selectBuddy('buddy10')">
-        <img src="images/buddy11.png" alt="Buddy 11" class="buddy-image" onclick="selectBuddy('buddy11')">
-
-
-
-
+      <figure onclick="selectBuddy('elephant')">
+        <img src="images/elephant.png" alt="Elephant the lion buddy" class="buddy-image">
+        <figcaption>elephant</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('leo')">
+        <img src="images/leo.png" alt="Leo buddy" class="buddy-image">
+        <figcaption>leo</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('panda')">
+        <img src="images/panda.png" alt="Panda buddy" class="buddy-image">
+        <figcaption>panda</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('giraffe')">
+        <img src="images/giraffe.png" alt="Giraffe buddy" class="buddy-image">
+        <figcaption>giraffe</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('zebra')">
+        <img src="images/zebra.png" alt="Zebra buddy" class="buddy-image">
+        <figcaption>zebra</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('penguin')">
+        <img src="images/penguin.png" alt="Penguin buddy" class="buddy-image">
+        <figcaption>penguin</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('polar-bear')">
+        <img src="images/polar-bear.png" alt="Polar Bear buddy" class="buddy-image">
+        <figcaption>polar bear</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('alpaca')">
+        <img src="images/alpaca.png" alt="Alpaca buddy" class="buddy-image">
+        <figcaption>alpaca</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('sloth')">
+        <img src="images/sloth.png" alt="Sloth buddy" class="buddy-image">
+        <figcaption>sloth</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('tiger')">
+        <img src="images/tiger.png" alt="Tiger buddy" class="buddy-image">
+        <figcaption>tiger</figcaption>
+      </figure>
+      <figure onclick="selectBuddy('fox')">
+        <img src="images/fox.png" alt="Fox buddy" class="buddy-image">
+        <figcaption>fox</figcaption>
+      </figure>
     </div>
-    <div class="buddy-description">
-        <p>Select a buddy to start your mindfulness journey.</p>
-        <p>Each buddy is designed to help you focus and relax.</p>
-        <p>Click on a buddy to choose them and proceed to the next step.</p>
-    </div>
-    <p><a href="index.html">
+    <div class="spacer"></div>
+    <div class="back-wrapper">
+      <a href="index.html">
         <button id="back-btn">Back</button>
       </a>
-    </p>
-</div>  
-
-    
-
-    <script src="app.js" defer></script>
-
-
-
+    </div>
+  </div>
+  <script src="app.js" defer></script>
 </body>
 </html>
