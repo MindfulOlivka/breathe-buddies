@@ -7,28 +7,51 @@
     <title>Breathe Buddies</title>
 </head>
     <body>
-<div class="container">
+<div class="container-buddy">
     <h1>How are you feeling today?</h1>
-   
-    <button onclick="selectMood('happy')">Happy</button>
-    <button onclick="selectMood('sad')">Sad</button>
-    <button onclick="selectMood('angry')">Angry</button>
-    <button onclick="selectMood('anxious')">Anxious</button>
-    <button onclick="selectMood('relaxed')">Relaxed</button>
-    <button onclick="selectMood('bored')">Bored</button>
-    <button onclick="selectMood('excited')">Excited</button>
-
+   <div class="buddy-options">
+      <figure onclick="selectMood('happy')">
+        <img src="mood/happy.png" alt="A happy character" class="buddy-image">
+        <figcaption>happy</figcaption>
+      </figure>
+      <figure onclick="selectMood('sad')">
+        <img src="mood/sad.png" alt="A sad character" class="buddy-image">
+        <figcaption>sad</figcaption>
+      </figure>
+      <figure onclick="selectMood('angry')">
+        <img src="mood/angry.png" alt="A angry character" class="buddy-image">
+        <figcaption>angry</figcaption>
+      </figure>
+      <figure onclick="selectMood('anxious')">
+        <img src="mood/anxious.png" alt="A anxious character" class="buddy-image">
+        <figcaption>anxious</figcaption>
+      </figure>
+      <figure onclick="selectMood('relaxed')">
+        <img src="mood/relaxed.png" alt="A relaxed character" class="buddy-image">
+        <figcaption>relaxed</figcaption>
+      </figure>
+      <figure onclick="selectMood('bored')">
+        <img src="mood/bored.png" alt="A bored character" class="buddy-image">
+        <figcaption>bored</figcaption>
+      </figure>
+      <figure onclick="selectMood('excited')">
+        <img src="mood/excited.png" alt="A excited character" class="buddy-image">
+        <figcaption>excited</figcaption>
+      </figure>
+      <figure onclick="selectMood('loving')">
+        <img src="mood/loving.png" alt="A loving character" class="buddy-image">
+        <figcaption>loving</figcaption>
+      </figure>
+      <figure onclick="selectMood('confused')">
+        <img src="mood/confused.png" alt="A confused character" class="buddy-image">
+        <figcaption>confused</figcaption>
+      </figure>
+    </div>
     <p><a href="buddy.html">
         <button id="back-btn">Back</button>
       </a>
     </p>
 </div>
-
-    
-
-    <script src="app.js" defer></script>
-
-    
-
+<script src="app.js" defer></script>
 </body>
 </html>
