@@ -6,52 +6,36 @@
     <link rel="stylesheet" href="styles.css">
     <title>Breathe Buddies</title>
 </head>
-    <body>
-<div class="container">
+<body>
+  <div class="container-buddy">
     <body onload="loadSession()">
+    <h1>Mindfulness Session</h1>
+    <div class="buddy-selections" id="selected-info"></div>
+    <div id="timer-display">10:00</div>
+
+    <div class="controls">
+      <input type="number" id="minutes-input" placeholder="min" min="1" />
+      <button id="start-btn">Start</button>
+      <button id="pause-btn" disabled>Pause</button>
+      <button id="reset-btn" disabled>Reset</button>
+    </div>
+
+    <div id="generate-section">
+      <p>Click below to generate a soothing sound:</p>
+      <button onclick="generateFreesoundSound()">Generate Sound</button>
+    </div>
+
+    <div class="session-count">
+      <a href="history.html">
+        <button id="history-btn">Completed sessions: <span id="session-count">0</span></button>
+      </a>
+    </div>
+    <div class="spacer"></div>
+    <a href="mood.html">
+      <button id="back-btn">Back</button>
+    </a>
     
-          <h1>Mindfulness Session</h1>
-          <div id="animal-display"></div>
-          <div id="selected-info"></div>
-          <div id="timer-display">10:00</div>
-      
-          <div class="controls">
-            <input type="number" id="minutes-input" placeholder="Minutes" min="1" />
-            <button id="start-btn">Start</button>
-            <button id="pause-btn" disabled>Pause</button>
-            <button id="reset-btn" disabled>Reset</button>
-          </div>
-      
-          <div id="generate-section">
-            <p>Click below to generate a soothing sound:</p>
-            <button onclick="generateFreesoundSound()">Generate Sound</button>
-          </div>
-      
-          <div class="session-count">
-           
-            <a href="history.html">
-              <p><link href="history.html"><button id="history-btn">Completed sessions: <span id="session-count">0</span></button></p></a>
-
-              <p><a href="mood.html">
-                <button id="back-btn">Back</button>
-              </a>
-            </p>
-
-        
-          </div>
-            </a>
-          </div>
-        </div>
-      
-        <script src="app.js" defer></script>
-       
-      </body>
-
-    
-
-
-    
-
-    <script src="app.js" defer></script>
+  </div>
+  <script src="app.js" defer></script>
 </body>
 </html>
